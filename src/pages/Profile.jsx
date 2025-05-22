@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router";
 
-const navigate = useNavigate();
-
 const Profile = () => {
+  const navigate = useNavigate(); // <-- Move here!
+
   const user = JSON.parse(localStorage.getItem('user'));
   const name = user?.name || 'Guest User';
   const email = user?.email || 'Not logged in';
@@ -52,14 +52,14 @@ const Profile = () => {
           </div>
           <div className="flex justify-center">
             <button
-  className="bg-[#6C25FF] rounded-lg text-white text-base font-semibold px-6 py-2 shadow-md hover:bg-[#5A1EDB] active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#6C25FF]"
-  onClick={() => {
-    localStorage.removeItem('user');
-    navigate("/login"); // or navigate("/") for home
-  }}
->
-  Logout
-</button>
+              className="bg-[#6C25FF] rounded-lg text-white text-base font-semibold px-6 py-2 shadow-md hover:bg-[#5A1EDB] active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#6C25FF]"
+              onClick={() => {
+                localStorage.removeItem('user');
+                navigate("/login");
+              }}
+            >
+              Logout
+            </button>
           </div>
         </div>
       </div>
